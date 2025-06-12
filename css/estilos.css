@@ -39,10 +39,12 @@
      display: flex;
      align-items: center;
      justify-content: space-between;
+     box-shadow: var(--shadow);
+     padding: 0 2rem;
 
      .main-nav__logo {
-
-         background-color: aqua;
+         flex-shrink: 0;
+         /* background-color: aqua; */
          display: flex;
          align-items: center;
 
@@ -52,7 +54,21 @@
              .main-nav--logo__imagen {
                  width: 100%;
              }
+
          }
+
+         h1 {
+             /* background-color: aqua; */
+             font-size: 1.5rem;
+             font-weight: 700;
+             color: var(--primary-color);
+             letter-spacing: -0.025em;
+         }
+     }
+
+     /* Checkbox oculto */
+     .main-nav__toggle {
+         display: none;
      }
 
      /* MENÚ EN DESKTOP - HORIZONTAL */
@@ -73,6 +89,46 @@
                  color: var(--gray-700);
                  font-weight: 500;
                  padding: 0.75rem 1rem;
+                 border-radius: var(--border-radius);
+                 transition: all var(--transition-speed) ease;
+                 position: relative;
+
+                 &:hover {
+                     color: var(--primary-color);
+                     background-color: var(--gray-100);
+                 }
+
+                 &:focus {
+                     outline: 2px solid var(--primary-color);
+                     outline-offset: 2px;
+                 }
+             }
+
+             .main-nav__link--active {
+                 color: var(--primary-color);
+                 background-color: var(--gray-100);
+             }
+
+             .main-nav__link--active::after {
+                 content: '';
+                 position: absolute;
+                 bottom: -2px;
+                 left: 50%;
+                 transform: translateX(-50%);
+                 width: 80%;
+                 height: 2px;
+                 background-color: var(--primary-color);
+                 border-radius: 1px;
+             }
+
+             /* Botón especial */
+             .main-nav__link--button {
+                 background-color: blueviolet;
+                 background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+                 color: var(--white);
+                 font-weight: 600;
+                 margin-left: 0.5rem;
+                 box-shadow: 0 2px 4px rgba(37, 99, 235, 0.2);
              }
          }
      }
